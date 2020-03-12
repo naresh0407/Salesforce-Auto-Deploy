@@ -27,12 +27,13 @@
 	</taskdef>
     <macrodef name="gitDiff">
 		<sequential>
-			<exec executable="git" outputproperty="git.diff">
+		
+				<exec executable="git" outputproperty="git.diff">
 				<arg value="diff" />
-				<arg value="--pretty=format:" />
+				<arg value="-r" />
 				<arg value="--name-only" />
 				<arg value="910705a1933c155a98e5e922cbc937ce2d4ab33b" />
-				<arg value="56d6455ebd0bf15b9eba5ac189e759dedce75c1a" />
+				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
 		</sequential>
@@ -42,7 +43,7 @@
 		<delete dir="${sf.deployDir}"/>
 		<mkdir dir="${sf.deployDir}"/>
 		<copy file="${sf.samplePackageXML}" tofile="${sf.deployDir}/package.xml"/>
-		<echo>Current GIT Commit : 56d6455ebd0bf15b9eba5ac189e759dedce75c1a</echo>
+		<echo>Current GIT Commit : 3a6785ac16389a37de5b05343fe038fd31a68596</echo>
 		<echo>Previous Known Successful GIT Commit : 910705a1933c155a98e5e922cbc937ce2d4ab33b</echo>
 		<gitDiff/>
 		<for list="${git.diff}" param="currentDiff" delimiter="${line.separator}">
