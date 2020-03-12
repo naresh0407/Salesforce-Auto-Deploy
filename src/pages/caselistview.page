@@ -1,5 +1,5 @@
 <apex:page showHeader="true" tabstyle="Case"> 
-<apex:enhancedList type="Case" height="300" 
+<apex:enhancedList type="Case" height="320" 
 
         ListId="00B1i0000013WKpEAM" customizable="False" />
 </apex:page>
