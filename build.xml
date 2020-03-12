@@ -1,11 +1,11 @@
 <project name="test" default="sync" xmlns:sf="antlib:com.salesforce">
 	<property environment="env"/>
-	<property name="sf.username"      value="${env.username}"/>
-	<property name="sf.password"      value="${env.password}"/>
+	<property name="sf.username"      value="naresh.nadimpalli@accenture.com"/>
+	<property name="sf.password"      value="Accenture@4321"/>
 	<property name="sf.clientId"      value="${env.clientId}"/>
 	<property name="sf.clientSecret"      value="${env.clientSecret}"/>
 	<property name="sf.refreshToken"      value="${env.refreshToken}"/>
-	<property name="sf.serverurl"      value="${env.serverurl}"/>
+	<property name="sf.serverurl"      value="https://login.salesforce.com"/>
 	<property name="sf.branch"      value="${env.branch}"/>
 	<property name="canDeploy" value="false"/>
 	
@@ -31,8 +31,8 @@
 				<arg value="diff" />
 				<arg value="--pretty=format:" />
 				<arg value="--name-only" />
-				<arg value="${env.GIT_COMMIT}" />
-				<arg value="${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}" />
+				<arg value="910705a1933c155a98e5e922cbc937ce2d4ab33b" />
+				<arg value="56d6455ebd0bf15b9eba5ac189e759dedce75c1a" />
 			</exec>
 			<echo>${git.diff}</echo>
 		</sequential>
@@ -42,8 +42,8 @@
 		<delete dir="${sf.deployDir}"/>
 		<mkdir dir="${sf.deployDir}"/>
 		<copy file="${sf.samplePackageXML}" tofile="${sf.deployDir}/package.xml"/>
-		<echo>Current GIT Commit : ${env.GIT_COMMIT}</echo>
-		<echo>Previous Known Successful GIT Commit : ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}</echo>
+		<echo>Current GIT Commit : 56d6455ebd0bf15b9eba5ac189e759dedce75c1a</echo>
+		<echo>Previous Known Successful GIT Commit : 910705a1933c155a98e5e922cbc937ce2d4ab33b</echo>
 		<gitDiff/>
 		<for list="${git.diff}" param="currentDiff" delimiter="${line.separator}">
 			<sequential>
